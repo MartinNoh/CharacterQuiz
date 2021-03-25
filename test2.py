@@ -149,6 +149,8 @@ class Window(QMainWindow):
 
     # 정답 보기 함수
     def Check_answer(self):
+        self.flag = False
+
         filename_raw = os.path.basename(self.image_path)
         filename = filename_raw.split('.')[0]
         alert = QMessageBox()
