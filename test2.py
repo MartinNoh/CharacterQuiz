@@ -30,13 +30,13 @@ class Window(QMainWindow):
 
         # 변수 정리
         # counter
-        self.count = 50
+        self.count = 40
 
         # creating flag
         self.flag = False
 
-
-
+        self.abspath = "C:/Users/ehdru/PycharmProjects/pythonProject7/media"
+        self.image_path = os.path.join(self.abspath, 'ready.png')
 
         # 이미지 확인
         # creating a label to show the time
@@ -49,11 +49,12 @@ class Window(QMainWindow):
         self.label_img.setStyleSheet("border : 4px solid black;")
 
         # get image
-        self.label_img.setPixmap(QtGui.QPixmap("media/ready.png"))
+        self.label_img.setPixmap(QtGui.QPixmap(self.image_path))
         self.label_img.setScaledContents(False)
         self.label_img.setAlignment(QtCore.Qt.AlignCenter)
         self.label_img.setWordWrap(False)
         self.label_img.setObjectName("label_img")
+
 
 
 
@@ -78,10 +79,8 @@ class Window(QMainWindow):
         # setting geometry to the button
         re_set.setGeometry(1170, 90, 251, 51)
 
-        # 클릭 : 다음 사진 보기
-        self.abspath = "C:/Users/ehdru/PycharmProjects/pythonProject7/media"
-        self.image_path = os.path.join(self.abspath, '솔트룩스.JPG')
 
+        # 클릭 : 다음 사진 보기
         # add action to the method
         re_set.pressed.connect(self.show_next_img)
 
@@ -164,7 +163,7 @@ class Window(QMainWindow):
 
         self.label_img.setPixmap(QtGui.QPixmap(self.image_path))
 
-        self.count = 50
+        self.count = 40
         self.flag = True
 
 
@@ -176,7 +175,7 @@ class Window(QMainWindow):
             self.count -= 1
         if self.count == 0:
             self.flag = False
-            self.count = 50
+            self.count = 40
             alert = QMessageBox()
             alert.setText('그만!')
             alert.exec_()
@@ -206,7 +205,7 @@ class Window(QMainWindow):
         self.flag = False
 
         # reseeting the count
-        self.count = 50
+        self.count = 40
 
         # setting text to label
         self.label.setText(str(self.count))
